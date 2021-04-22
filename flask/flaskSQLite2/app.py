@@ -1,15 +1,6 @@
-from flask import *
 import sqlite3
-
-app = Flask(__name__)
-@app.route("/")
-def index():
-    return render_template("index.html");
-
-
-@app.route("/add")  
-def add():
-    return render_template("add.html")
-
-if __name__=="__main__":
-    app.run()
+conn = sqlite3.connect('employee.db')
+print ("Opened database successfully")
+conn.execute('CREATE TABLE Student1 (	"Name"	TEXT,	"address"	TEXT,	"email"	TEXT,	"id"	INTEGER NOT NULL UNIQUE,PRIMARY KEY("id" AUTOINCREMENT));')
+print ("Table created successfully")
+conn.close()
